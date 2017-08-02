@@ -37,3 +37,10 @@ $ npm run srv-dev
 ```
 $ npm run client-dev
 ```
+
+### +
+
+#### Editor Config
+
+install editorconfig plugin (Sublime, VS Code, ...)
+
