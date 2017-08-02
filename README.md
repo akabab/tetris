@@ -29,7 +29,7 @@ $ npm install
 #### Launch Server
 
 ```
-$ npm run  srv-dev
+$ npm run srv-dev
 ```
 
 #### Launch Client
