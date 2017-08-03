@@ -17,6 +17,11 @@ install [eslint](http://eslint.org/docs/user-guide/getting-started)
 $ npm install -g eslint (may need `sudo`)
 ```
 
+install [ava](https://github.com/avajs/ava) for testing purpose
+```
+$ npm install -g ava (may need `sudo`)
+```
+
 ### Installation
 
 clone repo
