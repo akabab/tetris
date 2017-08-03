@@ -14,7 +14,7 @@ const initApp = (app, params, cb) => {
       if (err) {
         logerror(err)
         res.writeHead(500)
-        
+
         return res.end('Error loading index.html')
       }
       res.writeHead(200)
@@ -32,7 +32,7 @@ const initApp = (app, params, cb) => {
 
 const initEngine = io => {
   io.on('connection', function(socket){
-    loginfo("Socket connected: " + socket.id)
+    loginfo('Socket connected: ' + socket.id)
     socket.on('action', (action) => {
       if (action.type === 'server/ping') {
         socket.emit('action', {type: 'pong'})
@@ -42,7 +42,7 @@ const initEngine = io => {
 }
 
 export function create(params) {
-  const promise = new Promise((resolve, reject) => {
+  const promise = new Promise((resolve/*, reject*/) => {
     const app = http.createServer()
     initApp(app, params, () => {
       const io = socketio(app)
@@ -59,6 +59,6 @@ export function create(params) {
       resolve({ stop })
     })
   })
-  
+
   return promise
 }
