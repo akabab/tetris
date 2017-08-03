@@ -12,6 +12,11 @@ install latest version of node
 $ n latest
 ```
 
+install [eslint](http://eslint.org/docs/user-guide/getting-started)
+```
+$ npm install -g eslint (may need `sudo`)
+```
+
 ### Installation
 
 clone repo
