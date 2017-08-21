@@ -1,3 +1,12 @@
-import alert from './alert'
+import { combineReducers } from 'redux';
 
-export default alert
+/* Reducers */
+import alert from './alert'
+import square from './square'
+import tetromino from './tetromino'
+
+export default combineReducers({
+  alert,
+  square,
+  tetromino,
+})
