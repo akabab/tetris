@@ -7,6 +7,7 @@ const x = Math.floor(Math.random() * w)
 
 const reducer = (state = { x: x, y: 0 } , action) => {
   switch (action.type) {
+  case 'INIT':     return { ...state, x: x, y: 0 }
   case MOVE_LEFT:  return { ...state, x: state.x - 1 }
   case MOVE_UP:    return { ...state, y: state.y - 1 }
   case MOVE_RIGHT: return { ...state, x: state.x + 1 }

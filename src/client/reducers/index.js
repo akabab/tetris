@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 
 /* Reducers */
-import alert from './alert'
+import game from './game'
 import square from './square'
-import tetromino from './tetromino'
+import tetrominoes from './tetromino'
 
 export default combineReducers({
-  alert,
+  game,
   square,
-  tetromino,
+  tetrominoes,
 })
