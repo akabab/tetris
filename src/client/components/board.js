@@ -2,8 +2,6 @@ import React from 'react'
 import Tetromino from './tetromino'
 import store from '../store'
 
-const params = require('../../../params')
-
 class Board extends React.Component {
 
   componentDidMount() {
@@ -11,10 +9,6 @@ class Board extends React.Component {
   }
 
   render() {
-    const size = params.game.size
-    const w = size.width
-    const h = size.height
-
     const style = {
       width: '400px',
       height: '800px',
@@ -22,9 +16,12 @@ class Board extends React.Component {
       background: '#e0e0e0',
     }
 
+    const tetrominoes = store.getState().tetrominoes
+      .map((t, index) => <Tetromino tetromino={t} key={index} />)
+
     return (
       <div style={style}>
-        <Tetromino />
+        {tetrominoes}
       </div>
     )
   }

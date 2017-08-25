@@ -13,13 +13,17 @@ import { patterns } from './tetrominoes'
 import { addTetromino } from './actions/tetromino'
 
 const patternsKeys = Object.keys(patterns)
-const p = patternsKeys[Math.floor(Math.random() * patternsKeys.length)]
+document.newTetromino = () => {
+  const p = patternsKeys[Math.floor(Math.random() * patternsKeys.length)]
 
-store.dispatch(addTetromino({
-  patterns: patterns[p],
-  currentPatternIndex: 0,
-  pos: { x: 3, y: 0 },
-}))
+  store.dispatch(addTetromino({
+    patterns: patterns[p],
+    currentPatternIndex: 0,
+    pos: { x: 3, y: 0 },
+  }))
+}
+document.newTetromino()
+
 //
 
 game.loop()

@@ -1,4 +1,3 @@
-import { move } from './actions/square'
 import store from './store'
 
 const SPACE = 32
