@@ -23,7 +23,6 @@ document.newTetromino = () => {
   }))
 }
 document.newTetromino()
-
 //
 
 game.loop()
