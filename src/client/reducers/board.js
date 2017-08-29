@@ -16,11 +16,10 @@ const reducer = (state = initialState, action) => {
       for (let y = 0; y < pattern.length; y++) {
         for (let x = 0; x < pattern[0].length; x++) {
           if (pattern[y][x])
-            board[t.pos.y + y][t.pos.x + x] = 1
+            board[t.y + y][t.x + x] = 1
         }
       }
 
-      console.log('SET board:', board)
       return board
     }
 
@@ -32,11 +31,10 @@ const reducer = (state = initialState, action) => {
         for (let y = 0; y < pattern.length; y++) {
           for (let x = 0; x < pattern[0].length; x++) {
             if (pattern[y][x])
-              board[t.pos.y + y][t.pos.x + x] = 0
+              board[t.y + y][t.x + x] = 0
           }
         }
 
-        console.log('UNSET board:', board)
         return board
     }
 

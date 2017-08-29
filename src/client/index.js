@@ -19,7 +19,8 @@ document.newTetromino = () => {
   store.dispatch(addTetromino({
     patterns: patterns[p],
     currentPatternIndex: 0,
-    pos: { x: 3, y: 0 },
+    x: 3,
+    y: 0,
   }))
 }
 document.newTetromino()

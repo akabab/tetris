@@ -1,6 +1,10 @@
 import { ADD_TETROMINO } from '../actions/tetromino'
+import collides from '../collides'
 
 const reducer = (state = [], action) => {
+
+  const currentTetromino = state.slice(-1)[0]
+
   switch (action.type) {
 
     case ADD_TETROMINO: {
@@ -9,81 +13,85 @@ const reducer = (state = [], action) => {
         {
           patterns: action.patterns,
           currentPatternIndex: action.currentPatternIndex,
-          pos: action.pos
+          x: action.x,
+          y: action.y,
         }
       ]
     }
 
     case 'MOVE_LEFT_TETROMINO': {
-      const last = state.slice(-1)[0]
-
-      if (!last) {
+      if (!currentTetromino) {
         return state
       }
 
+      const t = {
+        ...currentTetromino,
+        x: currentTetromino.x - 1,
+      }
+
+      if (collides(t))
+        return state
+
       return [
         ...state.slice(0, -1),
-        {
-          ...last,
-          pos: {
-            x: last.pos.x - 1,
-            y: last.pos.y,
-          }
-        }
+        t
       ]
     }
 
     case 'MOVE_RIGHT_TETROMINO': {
-      const last = state.slice(-1)[0]
-
-      if (!last) {
+      if (!currentTetromino) {
         return state
       }
 
+      const t = {
+        ...currentTetromino,
+        x: currentTetromino.x + 1,
+      }
+
+      if (collides(t))
+        return state
+
       return [
         ...state.slice(0, -1),
-        {
-          ...last,
-          pos: {
-            x: last.pos.x + 1,
-            y: last.pos.y,
-          }
-        }
+        t
       ]
     }
 
     case 'DROP_TETROMINO': {
-      const last = state.slice(-1)[0]
-
-      if (!last) {
+      if (!currentTetromino) {
         return state
       }
 
+      const t = {
+          ...currentTetromino,
+          y: currentTetromino.y + 1,
+        }
+
+      if (collides(t))
+        return state
+
       return [
         ...state.slice(0, -1),
-        {
-          ...last,
-          pos: {
-            x: last.pos.x,
-            y: last.pos.y + 1,
-          }
-        }
+        t
       ]
     }
 
     case 'ROTATE_TETROMINO': {
-      const last = state.slice(-1)[0]
-
-      if (!last) {
+      if (!currentTetromino) {
         return state
       }
 
+      const t = {
+        ...currentTetromino,
+        currentPatternIndex: (currentTetromino.currentPatternIndex + 1) % currentTetromino.patterns.length,
+      }
+
+      if (collides(t))
+        return state
+
       return [
         ...state.slice(0, -1),
-        {
-          ...last,
-          currentPatternIndex: (last.currentPatternIndex + 1) % last.patterns.length,
-        }
+        t
       ]
     }
 

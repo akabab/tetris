@@ -29,7 +29,7 @@ const Tetromino = ({ tetromino: t }) => {
 
   const containerStyle = {
     position: 'absolute',
-    transform: `translate(${t.pos.x * 40}px, ${t.pos.y * 40}px)`,
+    transform: `translate(${t.x * 40}px, ${t.y * 40}px)`,
   }
 
   return (
