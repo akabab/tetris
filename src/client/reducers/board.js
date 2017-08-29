@@ -20,6 +20,7 @@ const reducer = (state = initialState, action) => {
         }
       }
 
+      console.log(board)
       return board
     }
 

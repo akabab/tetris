@@ -1,10 +1,11 @@
-
 const initialState = {
   paused: true,
 
   ended: false,
 
-  dropDelay: 1000, // ms
+  dropDelay: 500, // ms
+
+  needTetromino: false,
 }
 
 const reducer = (state = initialState, action) => {

@@ -16,12 +16,16 @@ const patternsKeys = Object.keys(patterns)
 document.newTetromino = () => {
   const p = patternsKeys[Math.floor(Math.random() * patternsKeys.length)]
 
-  store.dispatch(addTetromino({
+  const t = {
     patterns: patterns[p],
     currentPatternIndex: 0,
     x: 3,
     y: 0,
-  }))
+  }
+
+  store.dispatch(addTetromino(t))
+
+  return t
 }
 document.newTetromino()
 //
