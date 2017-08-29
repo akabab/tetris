@@ -11,6 +11,7 @@ const reducer = (state = [], action) => {
       return [
         ...state,
         {
+          letter: action.letter,
           patterns: action.patterns,
           currentPatternIndex: action.currentPatternIndex,
           x: action.x,

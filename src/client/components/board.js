@@ -13,7 +13,7 @@ class Board extends React.Component {
       width: '400px',
       height: '800px',
       margin: 'auto',
-      background: '#e0e0e0',
+      background: '#2a2f31',
     }
 
     const tetrominoes = store.getState().tetrominoes

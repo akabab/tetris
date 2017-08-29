@@ -3,8 +3,12 @@ import { connect } from 'react-redux'
 import Board from '../components/board'
 
 const App = ({ message }) => {
+  const style = {
+    backgroundColor: '#16191e'
+  }
+
   return (
-    <div>
+    <div style={style}>
       <span>{message}</span>
       <Board />
     </div>

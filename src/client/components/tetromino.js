@@ -1,5 +1,15 @@
 import React from 'react'
 
+const colors = {
+  'I': '#906dc9',
+  'J': '#79e1ff',
+  'L': '#ffa300',
+  'O': '#dc1d42',
+  'S': '#518087',
+  'T': '#aff800',
+  'Z': '#eaf0c4',
+};
+
 const Tetromino = ({ tetromino: t }) => {
 
   const blocks = () => {
@@ -15,7 +25,7 @@ const Tetromino = ({ tetromino: t }) => {
             position: 'absolute',
             width: '40px',
             height: '40px',
-            background: 'orange',
+            backgroundColor: colors[t.letter],
             transform: `translate(${i * 40}px, ${j * 40}px)`,
           }
 

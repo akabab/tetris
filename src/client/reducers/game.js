@@ -3,7 +3,7 @@ const initialState = {
 
   ended: false,
 
-  dropDelay: 500, // ms
+  dropDelay: 200, // ms
 
   needTetromino: false,
 }

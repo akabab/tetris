@@ -14,12 +14,13 @@ import { addTetromino } from './actions/tetromino'
 
 const patternsKeys = Object.keys(patterns)
 document.newTetromino = () => {
-  const p = patternsKeys[Math.floor(Math.random() * patternsKeys.length)]
+  const letter = patternsKeys[Math.floor(Math.random() * patternsKeys.length)]
 
   const t = {
-    patterns: patterns[p],
-    currentPatternIndex: 0,
-    x: 3,
+    letter,
+    patterns: patterns[letter],
+    currentPatternIndex: 0, // random?
+    x: 3, // random
     y: 0,
   }
 
