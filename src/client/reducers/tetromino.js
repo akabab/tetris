@@ -1,6 +1,8 @@
 import { ADD_TETROMINO } from '../actions/tetromino'
 import collides from '../collides'
 
+let id = 0
+
 const reducer = (state = [], action) => {
 
   const currentTetromino = state.slice(-1)[0]
@@ -11,6 +13,7 @@ const reducer = (state = [], action) => {
       return [
         ...state,
         {
+          id: id++,
           letter: action.letter,
           patterns: action.patterns,
           patternIndex: action.patternIndex,
@@ -68,8 +71,10 @@ const reducer = (state = [], action) => {
           y: currentTetromino.y + 1,
         }
 
-      if (collides(t))
+      if (collides(t)) {
+        action.asyncDispatch({ type: 'SET_TETROMINO', tetromino: currentTetromino })
         return state
+      }
 
       return [
         ...state.slice(0, -1),

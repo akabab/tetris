@@ -1,3 +1,4 @@
+import { ADD_TETROMINO, addTetromino } from '../actions/tetromino'
 import { game } from '../constants'
 import _ from 'lodash'
 
@@ -19,6 +20,8 @@ const reducer = (state = initialState, action) => {
             board[t.y + y][t.x + x] = 1
         }
       }
+
+      action.asyncDispatch(addTetromino(document.newTetromino()))
 
       return board
     }

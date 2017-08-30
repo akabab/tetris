@@ -25,11 +25,10 @@ document.newTetromino = () => {
     y: 0,
   }
 
-  store.dispatch(addTetromino(t))
 
   return t
 }
-document.newTetromino()
+store.dispatch(addTetromino(document.newTetromino()))
 //
 
 game.loop()
