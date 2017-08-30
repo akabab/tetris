@@ -16,7 +16,7 @@ const Tetromino = ({ tetromino: t }) => {
     const divs = []
 
     let key = 0
-    const pattern = t.patterns[t.currentPatternIndex]
+    const pattern = t.patterns[t.patternIndex]
     for (let j = 0; j < pattern.length; j++) {
       for (let i = 0; i < pattern[0].length; i++) {
 

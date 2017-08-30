@@ -7,6 +7,7 @@ import * as game from './game'
 
 import store from './store' /* init store */
 import './keys' /* Key handling */
+import './url' /* Url handling */
 
 //
 import { patterns } from './tetrominoes'
@@ -19,7 +20,7 @@ document.newTetromino = () => {
   const t = {
     letter,
     patterns: patterns[letter],
-    currentPatternIndex: 0, // random?
+    patternIndex: 0, // random?
     x: 3, // random
     y: 0,
   }

@@ -13,7 +13,7 @@ const reducer = (state = [], action) => {
         {
           letter: action.letter,
           patterns: action.patterns,
-          currentPatternIndex: action.currentPatternIndex,
+          patternIndex: action.patternIndex,
           x: action.x,
           y: action.y,
         }
@@ -84,7 +84,7 @@ const reducer = (state = [], action) => {
 
       const t = {
         ...currentTetromino,
-        currentPatternIndex: (currentTetromino.currentPatternIndex + 1) % currentTetromino.patterns.length,
+        patternIndex: (currentTetromino.patternIndex + 1) % currentTetromino.patterns.length,
       }
 
       if (collides(t))

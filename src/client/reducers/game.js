@@ -3,9 +3,9 @@ const initialState = {
 
   ended: false,
 
-  dropDelay: 200, // ms
+  dropDelay: 500, // ms
 
-  needTetromino: false,
+  linesCompleted: 0,
 }
 
 const reducer = (state = initialState, action) => {

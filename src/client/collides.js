@@ -5,7 +5,7 @@ export default (tetromino) => {
 
   const board = store.getState().board
   const t = tetromino
-  const pattern = t.patterns[t.currentPatternIndex]
+  const pattern = t.patterns[t.patternIndex]
 
   for (let y = 0; y < pattern.length; y++) {
     for (let x = 0; x < pattern[0].length; x++) {

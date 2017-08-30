@@ -11,7 +11,7 @@ const reducer = (state = initialState, action) => {
     case 'SET_TETROMINO': {
       const board = _.cloneDeep(state)
       const t = action.tetromino
-      const pattern = t.patterns[t.currentPatternIndex]
+      const pattern = t.patterns[t.patternIndex]
 
       for (let y = 0; y < pattern.length; y++) {
         for (let x = 0; x < pattern[0].length; x++) {
@@ -20,14 +20,13 @@ const reducer = (state = initialState, action) => {
         }
       }
 
-      console.log(board)
       return board
     }
 
-    case 'UNSET_TETROMINO':{
+    case 'UNSET_TETROMINO': {
         const board = _.cloneDeep(state)
         const t = action.tetromino
-        const pattern = t.patterns[t.currentPatternIndex]
+        const pattern = t.patterns[t.patternIndex]
 
         for (let y = 0; y < pattern.length; y++) {
           for (let x = 0; x < pattern[0].length; x++) {
@@ -39,7 +38,7 @@ const reducer = (state = initialState, action) => {
         return board
     }
 
-    default:
+      default:
       return state
   }
 
