@@ -25,7 +25,6 @@ document.newTetromino = () => {
     y: 0,
   }
 
-
   return t
 }
 store.dispatch(addTetromino(document.newTetromino()))
