@@ -16,13 +16,11 @@ export default (tetromino) => {
         // out of bounds
         if (t.x + x < 0
           || t.y + y >= game.size.y || t.x + x >= game.size.x) {
-          console.log('collides: out of bounds..')
           return true
         }
 
         // overlaps another tetromino
         if (insideBounds(t.x + x, t.y + y) && board[t.y + y][t.x + x]) {
-          console.log('collides: overlaps')
           return true
         }
       }

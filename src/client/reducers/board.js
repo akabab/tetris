@@ -51,27 +51,27 @@ const reducer = (state = initialState, action) => {
     }
 
     case 'CHECK_COMPLETED_LINES': {
-
       let board = _.cloneDeep(state)
-      let lines = 0
+      let completedLines = 0
 
       for (let y = 0; y < game.size.y; y++) {
         const line = board[y]
 
         if (line.every(e => e != 0)) {
-          console.log(`line ${y} completed`)
-
           board = [
             Array(game.size.x).fill(0),
             ...board.slice(0, y),
             ...board.slice(y + 1)
           ]
 
-          lines += 1
+          completedLines += 1
         }
       }
 
-      action.asyncDispatch({type: 'INCREMENT_LINES_COMPLETED', n: lines})
+      if (!completedLines)
+        return state
+
+      action.asyncDispatch({type: 'INCREMENT_LINES_COMPLETED', n: completedLines})
 
       return board
     }

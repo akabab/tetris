@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Board from '../components/board'
+import HUD from '../components/hud'
 
 const App = () => {
 
@@ -11,6 +12,7 @@ const App = () => {
   return (
     <div className='app' style={style}>
       <Board />
+      <HUD />
     </div>
   )
 }
