@@ -12,10 +12,12 @@ class Board extends React.Component {
 
   render() {
     const style = {
+      position: 'relative',
       width: '400px',
       height: '800px',
       margin: 'auto',
       background: '#2a2f31',
+      overflow: 'hidden',
     }
 
     const state = store.getState()
@@ -23,17 +25,23 @@ class Board extends React.Component {
 
     const currentTetromino = state.tetrominoes.slice(-1)[0]
 
-    let key = 0
     const blocks = board
       .map((a, y) => a
         .map((e, x) => {
-          return <Block x={x * 40} y={y * 40} color={colors[e] || 'clear'} key={Math.random()} /> // TODO? random key ?
+          return <Block
+            x={x * 40}
+            y={y * 40}
+            color={colors[e] || 'clear'}
+            key={Math.random()}  // TODO? random key ?
+          />
         }))
 
     return (
-      <div style={style}>
+      <div className='board' style={style}>
         <Tetromino tetromino={currentTetromino} />
-        {blocks}
+        <div className='blocksContainer'>
+          {blocks}
+        </div>
       </div>
     )
   }

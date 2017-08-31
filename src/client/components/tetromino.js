@@ -9,11 +9,16 @@ const Tetromino = ({ tetromino: t }) => {
 
     let key = 0
     const pattern = t.patterns[t.patternIndex]
-    for (let j = 0; j < pattern.length; j++) {
-      for (let i = 0; i < pattern[0].length; i++) {
+    for (let y = 0; y < pattern.length; y++) {
+      for (let x = 0; x < pattern[0].length; x++) {
 
-        if (pattern[j][i]) {
-          divs.push(<Block x={i * 40} y={j * 40} color={colors[t.letter]} key={key++} />)
+        if (pattern[y][x]) {
+          divs.push(<Block
+            x={x * 40}
+            y={y * 40}
+            color={colors[t.letter]}
+            key={key++}
+          />)
         }
       }
     }
@@ -27,7 +32,7 @@ const Tetromino = ({ tetromino: t }) => {
   }
 
   return (
-    <div style={containerStyle}>
+    <div className='tetromino' style={containerStyle}>
       {blocks()}
     </div>
   )

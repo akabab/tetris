@@ -10,9 +10,16 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
 
     case 'SET_TETROMINO': {
-      const board = _.cloneDeep(state)
       const t = action.tetromino
       const pattern = t.patterns[t.patternIndex]
+
+      if (t.y < 0) {
+        action.asyncDispatch({type: 'END_GAME'})
+
+        return state
+      }
+
+      const board = _.cloneDeep(state)
 
       for (let y = 0; y < pattern.length; y++) {
         for (let x = 0; x < pattern[0].length; x++) {

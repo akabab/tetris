@@ -10,6 +10,6 @@ export const newTetromino = () => {
     patterns: patterns[letter],
     patternIndex: 0, // random?
     x: 3, // random
-    y: 0,
+    y: -2,
   }
 }

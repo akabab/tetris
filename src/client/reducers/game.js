@@ -19,7 +19,8 @@ const reducer = (state = initialState, action) => {
       }
     }
 
-    case 'END': {
+    case 'END_GAME': {
+      console.log('END')
       return {
         ...state,
         ended: true,

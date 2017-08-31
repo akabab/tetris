@@ -11,7 +11,7 @@ const Block = ({ x, y, color }) => {
     transform: `translate(${x}px, ${y}px)`,
   }
 
-  return <div style={style} />
+  return <div className='block' style={style} />
 }
 
 export default Block

@@ -1,6 +1,9 @@
 import store from './store'
 import { game } from './constants'
 
+const insideBounds = (x, y) => (x >= 0 && y >= 0
+  && x < game.size.x && y < game.size.y)
+
 export default (tetromino) => {
 
   const board = store.getState().board
@@ -11,14 +14,14 @@ export default (tetromino) => {
     for (let x = 0; x < pattern[0].length; x++) {
       if (pattern[y][x]) {
         // out of bounds
-        if (t.y + y < 0 || t.x + x < 0
+        if (t.x + x < 0
           || t.y + y >= game.size.y || t.x + x >= game.size.x) {
           console.log('collides: out of bounds..')
           return true
         }
 
         // overlaps another tetromino
-        if (board[t.y + y][t.x + x]) {
+        if (insideBounds(t.x + x, t.y + y) && board[t.y + y][t.x + x]) {
           console.log('collides: overlaps')
           return true
         }
