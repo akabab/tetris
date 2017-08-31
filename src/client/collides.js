@@ -9,8 +9,7 @@ export default (tetromino) => {
 
   for (let y = 0; y < pattern.length; y++) {
     for (let x = 0; x < pattern[0].length; x++) {
-      if (pattern[y][x] === 1) {
-
+      if (pattern[y][x]) {
         // out of bounds
         if (t.y + y < 0 || t.x + x < 0
           || t.y + y >= game.size.y || t.x + x >= game.size.x) {
@@ -19,7 +18,7 @@ export default (tetromino) => {
         }
 
         // overlaps another tetromino
-        if (board[t.y + y][t.x + x] === 1) {
+        if (board[t.y + y][t.x + x]) {
           console.log('collides: overlaps')
           return true
         }

@@ -26,9 +26,15 @@ const reducer = (state = initialState, action) => {
       }
     }
 
+    case 'INCREMENT_LINES_COMPLETED': {
+      return {
+        ...state,
+        linesCompleted: state.linesCompleted + (action.n || 1),
+      }
+    }
+
     default:
       return state
-
   }
 
 }
