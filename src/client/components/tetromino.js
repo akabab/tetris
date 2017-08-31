@@ -1,14 +1,6 @@
 import React from 'react'
-
-const colors = {
-  'I': '#906dc9',
-  'J': '#79e1ff',
-  'L': '#ffa300',
-  'O': '#dc1d42',
-  'S': '#518087',
-  'T': '#aff800',
-  'Z': '#eaf0c4',
-};
+import Block from './block'
+import { colors } from '../constants'
 
 const Tetromino = ({ tetromino: t }) => {
 
