@@ -9,7 +9,7 @@ const reducer = (state = initialState, action) => {
 
   switch (action.type) {
 
-  case 'SET_TETROMINO': {
+  case 'LOCK_TETROMINO': {
     const t = action.tetromino
     const pattern = t.patterns[t.patternIndex]
 
@@ -31,21 +31,6 @@ const reducer = (state = initialState, action) => {
     action.asyncDispatch({type: 'CHECK_COMPLETED_LINES'})
 
     action.asyncDispatch(addTetromino())
-
-    return board
-  }
-
-  case 'UNSET_TETROMINO': {
-    const board = _.cloneDeep(state)
-    const t = action.tetromino
-    const pattern = t.patterns[t.patternIndex]
-
-    for (let y = 0; y < pattern.length; y++) {
-      for (let x = 0; x < pattern[0].length; x++) {
-        if (pattern[y][x])
-          board[t.y + y][t.x + x] = 0
-      }
-    }
 
     return board
   }

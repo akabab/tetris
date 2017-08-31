@@ -63,7 +63,7 @@ const reducer = (state = [], action) => {
     }
 
     if (collides(t)) {
-      action.asyncDispatch({ type: 'SET_TETROMINO', tetromino: currentTetromino })
+      action.asyncDispatch({ type: 'LOCK_TETROMINO', tetromino: currentTetromino })
       return state
     }
 
