@@ -1,4 +1,4 @@
-import { game } from './constants'
+  import { game } from './constants'
 import { patterns } from './tetrominoes'
 
 const letters = Object.keys(patterns)

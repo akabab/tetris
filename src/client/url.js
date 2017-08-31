@@ -4,7 +4,7 @@ const defaults = {
 }
 
 const parseHash = hash => {
-  const matches = hash.match(/#(\w*)(\[(\w*)\])?/);
+  const matches = hash.match(/#(\w*)(\[(\w*)\])?/)
 
   return {
     room: matches[1],

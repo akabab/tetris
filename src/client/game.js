@@ -13,7 +13,7 @@ export const loop = () => {
 
     store.dispatch({ type: 'DROP_TETROMINO' })
 
-    lastDrop = now;
+    lastDrop = now
   }
 
   if (!game.ended) {

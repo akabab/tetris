@@ -12,30 +12,30 @@ const reducer = (state = initialState, action) => {
 
   switch (action.type) {
 
-    case 'TOGGLE_PAUSE': {
-      return {
-        ...state,
-        paused: !state.paused,
-      }
+  case 'TOGGLE_PAUSE': {
+    return {
+      ...state,
+      paused: !state.paused,
     }
+  }
 
-    case 'END_GAME': {
-      console.log('END')
-      return {
-        ...state,
-        ended: true,
-      }
+  case 'END_GAME': {
+    console.log('END')
+    return {
+      ...state,
+      ended: true,
     }
+  }
 
-    case 'INCREMENT_LINES_COMPLETED': {
-      return {
-        ...state,
-        linesCompleted: state.linesCompleted + (action.n || 1),
-      }
+  case 'INCREMENT_LINES_COMPLETED': {
+    return {
+      ...state,
+      linesCompleted: state.linesCompleted + (action.n || 1),
     }
+  }
 
-    default:
-      return state
+  default:
+    return state
   }
 
 }
