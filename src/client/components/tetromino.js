@@ -13,15 +13,7 @@ const Tetromino = ({ tetromino: t }) => {
       for (let i = 0; i < pattern[0].length; i++) {
 
         if (pattern[j][i]) {
-          const style = {
-            position: 'absolute',
-            width: '40px',
-            height: '40px',
-            backgroundColor: colors[t.letter],
-            transform: `translate(${i * 40}px, ${j * 40}px)`,
-          }
-
-          divs.push(<div style={style} key={key++} />)
+          divs.push(<Block x={i * 40} y={j * 40} color={colors[t.letter]} key={key++} />)
         }
       }
     }
