@@ -28,7 +28,7 @@ class Board extends React.Component {
     const blocks = board
       .map((a, y) => a
         .map((e, x) => {
-          return <Block x={x * 40} y={y * 40} color={colors[e] || 'clear'} key={Math.random()} /> // ? random key ?
+          return <Block x={x * 40} y={y * 40} color={colors[e] || 'clear'} key={Math.random()} /> // TODO? random key ?
         }))
 
     return (

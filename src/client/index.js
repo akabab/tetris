@@ -4,31 +4,13 @@ import { Provider } from 'react-redux'
 import App from './containers/app'
 
 import * as game from './game'
+import { addTetromino } from './actions/tetromino'
 
 import store from './store' /* init store */
 import './keys' /* Key handling */
 import './url' /* Url handling */
 
-//
-import { patterns } from './tetrominoes'
-import { addTetromino } from './actions/tetromino'
-
-const patternsKeys = Object.keys(patterns)
-document.newTetromino = () => {
-  const letter = patternsKeys[Math.floor(Math.random() * patternsKeys.length)]
-
-  const t = {
-    letter,
-    patterns: patterns[letter],
-    patternIndex: 0, // random?
-    x: 3, // random
-    y: 0,
-  }
-
-  return t
-}
-store.dispatch(addTetromino(document.newTetromino()))
-//
+store.dispatch(addTetromino())
 
 game.loop()
 

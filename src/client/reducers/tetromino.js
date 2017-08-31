@@ -1,8 +1,6 @@
 import { ADD_TETROMINO } from '../actions/tetromino'
 import collides from '../collides'
 
-let id = 0
-
 const reducer = (state = [], action) => {
 
   const currentTetromino = state.slice(-1)[0]
@@ -12,14 +10,7 @@ const reducer = (state = [], action) => {
     case ADD_TETROMINO: {
       return [
         ...state,
-        {
-          id: id++,
-          letter: action.letter,
-          patterns: action.patterns,
-          patternIndex: action.patternIndex,
-          x: action.x,
-          y: action.y,
-        }
+        action.tetromino,
       ]
     }
 

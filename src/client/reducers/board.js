@@ -1,4 +1,4 @@
-import { ADD_TETROMINO, addTetromino } from '../actions/tetromino'
+import { addTetromino } from '../actions/tetromino'
 import { game } from '../constants'
 import _ from 'lodash'
 
@@ -23,7 +23,7 @@ const reducer = (state = initialState, action) => {
 
       action.asyncDispatch({type: 'CHECK_COMPLETED_LINES'})
 
-      action.asyncDispatch(addTetromino(document.newTetromino()))
+      action.asyncDispatch(addTetromino())
 
       return board
     }

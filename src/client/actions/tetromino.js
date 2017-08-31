@@ -1,8 +1,10 @@
+import { newTetromino } from '../socket'
+
 export const ADD_TETROMINO = 'ADD_TETROMINO'
 
-export const addTetromino = (tetromino) => {
+export const addTetromino = () => {
   return {
-    ...tetromino,
-    type: ADD_TETROMINO
+    type: ADD_TETROMINO,
+    tetromino: newTetromino(),
   }
 }
