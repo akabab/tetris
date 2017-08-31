@@ -12,7 +12,6 @@ class Board extends React.Component {
 
   render() {
     const style = {
-      position: 'absolute',
       width: '400px',
       height: '800px',
       margin: 'auto',
