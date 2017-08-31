@@ -3,7 +3,7 @@ const initialState = {
 
   ended: false,
 
-  dropDelay: 500, // ms
+  dropDelay: 300, // ms
 
   linesCompleted: 0,
 }
