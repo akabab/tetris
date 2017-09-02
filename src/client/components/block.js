@@ -9,6 +9,7 @@ const Block = ({ x, y, color }) => {
     height: '40px',
     backgroundColor: color,
     transform: `translate(${x}px, ${y}px)`,
+    boxShadow: '0px 0px 0px 1px black inset',
   }
 
   return <div className='block' style={style} />
