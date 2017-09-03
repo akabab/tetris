@@ -43,7 +43,7 @@ document.body.addEventListener('keydown', e => {
     break
 
   case R:
-    window.location = window.location
+    window.location.reload(true)
     break
   }
 
