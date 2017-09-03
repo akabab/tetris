@@ -1,3 +1,9 @@
+import {
+  TOGGLE_PAUSE,
+  END_GAME,
+  INCREMENT_COMPLETED_LINES,
+} from '../actions/game'
+
 const initialState = {
   paused: true,
 
@@ -12,21 +18,21 @@ const reducer = (state = initialState, action) => {
 
   switch (action.type) {
 
-  case 'TOGGLE_PAUSE': {
+  case TOGGLE_PAUSE: {
     return {
       ...state,
       paused: !state.paused,
     }
   }
 
-  case 'END_GAME': {
+  case END_GAME: {
     return {
       ...state,
       ended: true,
     }
   }
 
-  case 'INCREMENT_COMPLETED_LINES': {
+  case INCREMENT_COMPLETED_LINES: {
     return {
       ...state,
       completedLines: state.completedLines + (action.n || 1),
