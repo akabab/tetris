@@ -14,32 +14,32 @@ document.body.addEventListener('keydown', e => {
   switch (e.keyCode) {
 
   case LEFT:
+    e.preventDefault()
     if (!game.paused && !game.ended)
       store.dispatch({ type: 'MOVE_LEFT_TETROMINO' })
-    e.preventDefault()
     break
 
   case UP:
+    e.preventDefault()
     if (!game.paused && !game.ended)
       store.dispatch({ type: 'ROTATE_TETROMINO' })
-    e.preventDefault()
     break
 
   case RIGHT:
+    e.preventDefault()
     if (!game.paused && !game.ended)
       store.dispatch({ type: 'MOVE_RIGHT_TETROMINO' })
-    e.preventDefault()
     break
 
   case DOWN:
+    e.preventDefault()
     if (!game.paused && !game.ended)
       store.dispatch({ type: 'DROP_TETROMINO' })
-    e.preventDefault()
     break
 
   case SPACE:
-    store.dispatch({ type: 'TOGGLE_PAUSE' })
     e.preventDefault()
+    store.dispatch({ type: 'TOGGLE_PAUSE' })
     break
 
   case R:
