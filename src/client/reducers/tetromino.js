@@ -1,4 +1,15 @@
-import { ADD_TETROMINO } from '../actions/tetromino'
+import {
+  ADD_TETROMINO,
+  MOVE_LEFT_TETROMINO,
+  MOVE_RIGHT_TETROMINO,
+  DROP_TETROMINO,
+  ROTATE_TETROMINO,
+} from '../actions/tetromino'
+
+import {
+  lockTetromino,
+} from '../actions/board'
+
 import collides from '../collides'
 
 const reducer = (state = [], action) => {
@@ -14,7 +25,7 @@ const reducer = (state = [], action) => {
     ]
   }
 
-  case 'MOVE_LEFT_TETROMINO': {
+  case MOVE_LEFT_TETROMINO: {
     if (!currentTetromino) {
       return state
     }
@@ -33,7 +44,7 @@ const reducer = (state = [], action) => {
     ]
   }
 
-  case 'MOVE_RIGHT_TETROMINO': {
+  case MOVE_RIGHT_TETROMINO: {
     if (!currentTetromino) {
       return state
     }
@@ -52,7 +63,7 @@ const reducer = (state = [], action) => {
     ]
   }
 
-  case 'DROP_TETROMINO': {
+  case DROP_TETROMINO: {
     if (!currentTetromino) {
       return state
     }
@@ -63,7 +74,7 @@ const reducer = (state = [], action) => {
     }
 
     if (collides(t)) {
-      action.asyncDispatch({ type: 'LOCK_TETROMINO', tetromino: currentTetromino })
+      action.asyncDispatch(lockTetromino(currentTetromino))
       return state
     }
 
@@ -73,7 +84,7 @@ const reducer = (state = [], action) => {
     ]
   }
 
-  case 'ROTATE_TETROMINO': {
+  case ROTATE_TETROMINO: {
     if (!currentTetromino) {
       return state
     }

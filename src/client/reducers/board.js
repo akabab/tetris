@@ -1,4 +1,18 @@
-import { addTetromino } from '../actions/tetromino'
+import {
+  addTetromino,
+} from '../actions/tetromino'
+
+import {
+  LOCK_TETROMINO,
+  CHECK_COMPLETED_LINES,
+  checkCompletedLines,
+} from '../actions/board'
+
+import {
+  endGame,
+  incrementCompletedLines,
+} from '../actions/game'
+
 import { game } from '../constants'
 import _ from 'lodash'
 
@@ -9,12 +23,12 @@ const reducer = (state = initialState, action) => {
 
   switch (action.type) {
 
-  case 'LOCK_TETROMINO': {
+  case LOCK_TETROMINO: {
     const t = action.tetromino
     const pattern = t.patterns[t.patternIndex]
 
     if (t.y < 0) {
-      action.asyncDispatch({type: 'END_GAME'})
+      action.asyncDispatch(endGame())
 
       return state
     }
@@ -28,14 +42,14 @@ const reducer = (state = initialState, action) => {
       }
     }
 
-    action.asyncDispatch({type: 'CHECK_COMPLETED_LINES'})
+    action.asyncDispatch(checkCompletedLines())
 
     action.asyncDispatch(addTetromino())
 
     return board
   }
 
-  case 'CHECK_COMPLETED_LINES': {
+  case CHECK_COMPLETED_LINES: {
     let board = _.cloneDeep(state)
     let completedLines = 0
 
@@ -56,7 +70,7 @@ const reducer = (state = initialState, action) => {
     if (!completedLines)
       return state
 
-    action.asyncDispatch({type: 'INCREMENT_LINES_COMPLETED', n: completedLines})
+    action.asyncDispatch(incrementCompletedLines(completedLines))
 
     return board
   }

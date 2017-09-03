@@ -5,7 +5,7 @@ const initialState = {
 
   dropDelay: 300, // ms
 
-  linesCompleted: 0,
+  completedLines: 0,
 }
 
 const reducer = (state = initialState, action) => {
@@ -26,10 +26,10 @@ const reducer = (state = initialState, action) => {
     }
   }
 
-  case 'INCREMENT_LINES_COMPLETED': {
+  case 'INCREMENT_COMPLETED_LINES': {
     return {
       ...state,
-      linesCompleted: state.linesCompleted + (action.n || 1),
+      completedLines: state.completedLines + (action.n || 1),
     }
   }
 

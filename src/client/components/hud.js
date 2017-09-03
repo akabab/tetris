@@ -35,7 +35,7 @@ class HUD extends React.Component {
 
     return (
       <div className='hud' style={style}>
-        <span style={textStyle}>{`score: ${game.linesCompleted}`}</span>
+        <span style={textStyle}>{`score: ${game.completedLines}`}</span>
         <span style={{...textStyle, textAlign: 'right'}}>{message}</span>
       </div>
     )

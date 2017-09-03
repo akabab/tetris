@@ -1,3 +1,14 @@
+import {
+  moveLeftTetromino,
+  moveRightTetromino,
+  dropTetromino,
+  rotateTetromino,
+} from './actions/tetromino'
+
+import {
+  togglePause,
+} from './actions/game'
+
 import store from './store'
 
 const SPACE = 32
@@ -16,30 +27,30 @@ document.body.addEventListener('keydown', e => {
   case LEFT:
     e.preventDefault()
     if (!game.paused && !game.ended)
-      store.dispatch({ type: 'MOVE_LEFT_TETROMINO' })
+      store.dispatch(moveLeftTetromino())
     break
 
   case UP:
     e.preventDefault()
     if (!game.paused && !game.ended)
-      store.dispatch({ type: 'ROTATE_TETROMINO' })
+      store.dispatch(rotateTetromino())
     break
 
   case RIGHT:
     e.preventDefault()
     if (!game.paused && !game.ended)
-      store.dispatch({ type: 'MOVE_RIGHT_TETROMINO' })
+      store.dispatch(moveRightTetromino())
     break
 
   case DOWN:
     e.preventDefault()
     if (!game.paused && !game.ended)
-      store.dispatch({ type: 'DROP_TETROMINO' })
+      store.dispatch(dropTetromino())
     break
 
   case SPACE:
     e.preventDefault()
-    store.dispatch({ type: 'TOGGLE_PAUSE' })
+    store.dispatch(togglePause())
     break
 
   case R:

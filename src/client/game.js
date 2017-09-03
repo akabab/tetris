@@ -1,3 +1,5 @@
+import { dropTetromino } from './actions/tetromino'
+
 import store from './store'
 
 let lastDrop = Date.now()
@@ -11,7 +13,7 @@ export const loop = () => {
 
   if (!game.paused && deltaTime > game.dropDelay) {
 
-    store.dispatch({ type: 'DROP_TETROMINO' })
+    store.dispatch(dropTetromino())
 
     lastDrop = now
   }
