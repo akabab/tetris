@@ -7,7 +7,11 @@ import { game, colors } from '../constants'
 class Board extends React.Component {
 
   componentDidMount() {
-    store.subscribe(() => this.forceUpdate())
+    this.unsubscribe = store.subscribe(() => this.forceUpdate())
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe()
   }
 
   render() {

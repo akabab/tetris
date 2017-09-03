@@ -4,7 +4,11 @@ import store from '../store'
 class HUD extends React.Component {
 
   componentDidMount() {
-    store.subscribe(() => this.forceUpdate())
+    this.unsubscribe = store.subscribe(() => this.forceUpdate())
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe()
   }
 
   render() {
